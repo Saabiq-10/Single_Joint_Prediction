@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+
+# big / generated artifacts
+data/walks/
+data/pose_results/
+data/sequences/
+metrics/
+models/*.pt
+*.mp4
+*.avi
+*.jpg
+*.png
