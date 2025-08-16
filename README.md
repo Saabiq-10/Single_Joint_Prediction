@@ -1,4 +1,4 @@
-# Tracking → Sequences → One Joint Training
+# Pose Tracking → Split into Training Sequences → One Joint Training
 
 Simple Setup (needs pytorch, see details below)
 
