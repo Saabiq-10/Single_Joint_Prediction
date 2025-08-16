@@ -9,7 +9,7 @@ data/walks/
 data/pose_results/
 data/sequences/
 metrics/
-models/*.pt
+# models/*.pt (temporarily allow pushing)
 *.mp4
 *.avi
 *.jpg
