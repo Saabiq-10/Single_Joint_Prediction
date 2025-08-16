@@ -1,4 +1,4 @@
-#Tracking → Sequences → One Joint Training
+# Tracking → Sequences → One Joint Training
 
 Simple Setup (needs pytorch, see details below)
 
@@ -24,17 +24,17 @@ python sequences.py
 # 5) Predict one joint (example: left hip=11)
 python predict1joint.py --joint 11 --anchor person --viz_all
 
-#Recommended: Continue from trained LSTM checkpoints
+# Recommended: Continue from trained LSTM checkpoints
 python predict1joint.py --joint all --hidden 192 --layers 2 --epochs 10 --anchor person --auto_resume --viz_all
 
-#Quick tips
+# Quick tips
 Anchors: head/arms → --anchor shoulders; hips/legs → --anchor person.
 
 
 COCO joints: 0 nose, 1 L_eye, 2 R_eye, 3 L_ear, 4 R_ear, 5 L_sh, 6 R_sh, 7 L_elb, 8 R_elb, 9 L_wr, 10 R_wr, 11 L_hip, 12 R_hip, 13 L_knee, 14 R_knee, 15 L_ank, 16 R_ank.
 
 
-#Outputs for prediction per sequence:
+# Outputs for prediction per sequence:
 
  data/sequences/.../seq_XXX/pred_jointJ/
   pred.csv      # predicted (x,y) for frames 144–179
