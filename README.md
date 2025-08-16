@@ -77,7 +77,7 @@ COCO joints: 0 nose, 1 L_eye, 2 R_eye, 3 L_ear, 4 R_ear, 5 L_sh, 6 R_sh, 7 L_elb
 
 
      
-     data/sequences/.../seq_XXX/pred_jointJ/ <br>
+     data/sequences/.../seq_XXX/pred_jointJ/
        pred.csv      # predicted (x,y) for frames 144–179
        metrics.csv   # ADE/FDE
        overlay.mp4   # GT (cyan) vs Pred (magenta)
