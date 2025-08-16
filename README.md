@@ -2,7 +2,7 @@
 
 Simple Setup (needs pytorch, see details below)
 
-# 1) Create env and install
+# 1) Create venv and install
 ```
 python -m venv venv
 venv\Scripts\activate           # or source venv/bin/activate (mac/linux)
