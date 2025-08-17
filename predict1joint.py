@@ -4,12 +4,12 @@ from pathlib import Path
 import numpy as np, pandas as pd, torch, cv2
 from torch import nn
 from torch.utils.data import Dataset, DataLoader
+import os
 
-# ======== PROJECT PATHS ========
-BASE = Path(r"C:\Users\saabi\Downloads\single_person_joints")
-SEQS_ROOT = BASE / "data" / "sequences"
-
-# Put checkpoints and split-level summaries in dedicated folders:
+# ======== PATHS ========
+REPO_ROOT = Path(__file__).resolve().parent
+BASE = Path(os.getenv("SJP_BASE_DIR", REPO_ROOT))
+SEQS_ROOT  = BASE / "data" / "sequences"
 MODELS_DIR  = BASE / "models"
 METRICS_DIR = BASE / "metrics"
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
