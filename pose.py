@@ -1,13 +1,6 @@
-import os
-import sys
+import os import sys
 import time
 from pathlib import Path
-
-
-# If you cloned Depth-Anything, add it here so 'import depth_anything' works.
-# If you didn't clone it, leave as-is; the script will run with depth off.
-sys.path.insert(0, r"C:\Users\saabi\Downloads\single_person_joints\Depth-Anything")
-
 import cv2
 import csv
 import torch
@@ -15,6 +8,17 @@ import numpy as np
 from ultralytics import YOLO
 from deep_sort_realtime.deepsort_tracker import DeepSort
 from collections import defaultdict, deque
+
+REPO_ROOT = Path(__file__).resolve().parent  # folder containing this script
+
+# If you cloned Depth-Anything, add it here so 'import depth_anything' works.
+# If you didn't clone it, leave as-is; the script will run with depth off.
+DEPTH_ANYTHING_DIR = os.getenv("DEPTH_ANYTHING_DIR", str(REPO_ROOT / "Depth-Anything"))
+if os.path.isdir(DEPTH_ANYTHING_DIR) and DEPTH_ANYTHING_DIR not in sys.path:
+    sys.path.insert(0, DEPTH_ANYTHING_DIR)
+else:
+    print("[depth] Depth-Anything not found. Set DEPTH_ANYTHING_DIR or disable depth.")
+
 
 # drawing + smoothing params
 JOINT_RADIUS     = 5          # bigger dots
@@ -50,8 +54,8 @@ except Exception:
     USE_DEPTH = False
 
 # ========= CONFIG (edit these two) =========
-VIDEO_INPUT_DIR  = r"C:\Users\saabi\Downloads\single_person_joints\data\videos"           # your videos folder
-OUTPUT_BASE_PATH = r"C:\Users\saabi\Downloads\single_person_joints\pose_results"    # outputs per video
+VIDEO_INPUT_DIR = str(REPO_ROOT / "data" / "videos")  # your videos folder
+OUTPUT_BASE_PATH = str(REPO_ROOT / "pose_results")   # outputs per video
 
 # Speed/quality knobs
 DET_CONF_THRESHOLD = 0.5
