@@ -4,15 +4,17 @@ import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
 
-# ========= PATHS (set these to your new layout) =========
-BASE         = Path(r"C:\Users\saabi\Downloads\single_person_joints")
+REPO_ROOT = Path(__file__).resolve().parent 
+BASE         = Path(os.getenv("SJP_BASE_DIR", REPO_ROOT))
 VIDEO_DIR    = BASE / "data" / "walks"          # original videos (for fallback)
 RESULTS_DIR  = BASE / "data" / "pose_results"   # contains overlay.mp4 + pose_depth.csv
 OUTPUT_ROOT  = BASE / "data" / "sequences"      # where sequences will be saved
-# ========================================================
+
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
 FPS = 12
-SEQ_LEN = 15 * FPS  # 15s * 12Hz = 180 frames
+SEQ_LEN = 15 * FPS 
 
 def load_pose_csv(csv_path: Path) -> pd.DataFrame:
     df = pd.read_csv(csv_path)
